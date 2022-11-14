@@ -3,14 +3,14 @@ let palavras3letras = ["gol", "bmw", "fox", "uno", "fit"];
 let palavras4letras = ["golf", "mobi", "argo", "clio", "kwid"];
 let palavras5letras = ["celta", "palio", "fusca", "versa", "hilux"];
 let palavras6letras = ["fiesta", "tucson", "meriva", "prisma", "vectra"];
-let palavras7letras = ["ferrari", "sandero", "corolla", "montana", "fiorino"];
+let palavras7letras = ["mclaren", "sandero", "hyundai", "renault", "citroen"];
 
 let sorteio = Math.floor(Math.random() * 5);
 let palavra = palavras3letras[sorteio];
 
 let palavraOculta = "___";
 let resultado = document.getElementById("resultado");
-let titulo = document.getElementById("resultado");
+let titulo = document.getElementById("titulo");
 let letra = document.getElementById("letra");
 let chutes = document.getElementById("chutes");
 let nPalavra = palavra.length;
@@ -24,6 +24,7 @@ let corpo6 = document.querySelector(".desenho6");
 let erros = 0;
 let acertou = false;
 let completou = false;
+let completouLetras = 0;
 function chutarLetra() {
 
     let index = palavra.indexOf(letra.value);
@@ -33,11 +34,11 @@ function chutarLetra() {
         alert("Não tem essa letra")
     } else {
         console.log(`Tem isso ${index} indice`);
-
+        alert("Tem essa letra")
         //Se for primeira palavra
         if (index == 0) {
             console.log("foi no 0");
-            palavraOculta = letra.value + palavraOculta.substring(index + 1, nPalavra);
+            palavraOculta = letra.value + palavraOculta.substring(index + 1, palavra.length);
         } else if (index == palavra.length - 1) {  //Se for ultima palavra
             console.log("foi no ultimo");
             palavraOculta = palavraOculta.substring(0, index) + letra.value;
@@ -78,17 +79,14 @@ function chutarLetra() {
         corpo5.style.display = "block";
         erros = erros + 1;
     } else if (acertou == false && erros == 5) {
-
-        corpo5.style.display = "none";
-        corpo6.style.display = "block";
-        erros = erros + 1;
-    } else if (acertou == false && erros == 6) {
         alert("Abacou!");
         // Sorteando outra palavra
         sorteio = Math.floor(Math.random() * 5);
-        palavra = palavras5letras[sorteio];
+        palavra = palavras3letras[sorteio];
         //   Zerando erros,resultado,chutes e ilustrativo
+        titulo.textContent = "Jogo da Forca com 3 letras";
         erros = 0;
+        chutes.textContent = "";
         resultado.textContent = "_____";
         palavraOculta = "_____";
         chutes.textContent = "";
@@ -98,7 +96,7 @@ function chutarLetra() {
         corpo4.style.display = "none";
         corpo5.style.display = "none";
         corpo6.style.display = "none";
-    }
+    } 
 
     chutes.textContent = chutes.textContent + letra.value.toUpperCase(); // Concatenando chutes
     letra.value = "";  //Zerar a letra colocada
@@ -113,12 +111,31 @@ function verificarSeCompletou() {
 
     if (index == -1) {
         alert("Completou!!");
+    
         // Sorteando outra palavra
         sorteio = Math.floor(Math.random() * 5);
-        palavra = palavras5letras[sorteio];
+        if(completouLetras == 0) {
+            palavra = palavras4letras[sorteio];
+            palavraOculta = "____";
+            titulo.textContent = "Jogo da Forca com 4 letras";
+        } else if(completouLetras == 1) {
+            palavra = palavras5letras[sorteio];
+            palavraOculta = "_____";
+            titulo.textContent = "Jogo da Forca com 5 letras";
+        }else if(completouLetras == 2) {
+            palavra = palavras6letras[sorteio];
+            palavraOculta = "_____";
+            titulo.textContent = "Jogo da Forca com 6 letras";
+        }else if(completouLetras == 1) {
+            palavra = palavras7letras[sorteio];
+            palavraOculta = "_____";
+            titulo.textContent = "Jogo da Forca com 7 letras";
+        }
+        completouLetras = completouLetras + 1;
+      
         //   Zerando erros,resultado,chutes e ilustrativo
         erros = 0;
-        palavraOculta = "_____";
+       
 
         chutes.textContent = "";
         corpo1.style.display = "none";
