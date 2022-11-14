@@ -10,16 +10,18 @@
 </head>
 
 <body>
-  <H1>Jogo da Força com 5 letras</H1>
+  <H1 id="titulo">Jogo da Forca com 3 letras</H1>
   <input type="text" id="letra"> <br><br>
-  <input type="button" value="Arriscar" onclick="chutarLetra()"> <br><br>
-  <img src="forca.png" style="    width: 150px;">
-  <img src="cabeca.png" class="desenho1">
-  <img src="corpo1.png" class="desenho2">
-  <img src="corpo2.png" class="desenho3">
-  <img src="corpo3.png" class="desenho4">
-  <img src="perna1.png" class="desenho5">
-  <img src="perna2.png" class="desenho6">
+  <input type="button" value="Arriscar" onclick="chutarLetra()"> 
+  <p>Letras chutadas :</p>
+  <p id="chutes"></p>
+  <img src="img/forca.png" style="    width: 150px;">
+  <img src="img/cabeca.png" class="desenho1">
+  <img src="img/corpo1.png" class="desenho2">
+  <img src="img/corpo2.png" class="desenho3">
+  <img src="img/corpo3.png" class="desenho4">
+  <img src="img/perna1.png" class="desenho5">
+  <img src="img/perna2.png" class="desenho6">
   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <h1 id="resultado">_____</h1>
 </body>
