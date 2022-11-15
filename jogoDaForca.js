@@ -79,7 +79,7 @@ function chutarLetra() {
         corpo5.style.display = "block";
         erros = erros + 1;
     } else if (acertou == false && erros == 5) {
-        alert("Abacou!");
+        alert(`Abacou! a palavra era ${palavra.toUpperCase()}`);
         // Sorteando outra palavra
         sorteio = Math.floor(Math.random() * 5);
         palavra = palavras3letras[sorteio];
@@ -110,7 +110,7 @@ function verificarSeCompletou() {
     let index = palavraOculta.indexOf("_");
 
     if (index == -1) {
-        alert("Completou!!");
+        alert(`Completou, a palavra era ${palavra.toUpperCase()}!!`);
     
         // Sorteando outra palavra
         sorteio = Math.floor(Math.random() * 5);
@@ -124,11 +124,11 @@ function verificarSeCompletou() {
             titulo.textContent = "Jogo da Forca com 5 letras";
         }else if(completouLetras == 2) {
             palavra = palavras6letras[sorteio];
-            palavraOculta = "_____";
+            palavraOculta = "______";
             titulo.textContent = "Jogo da Forca com 6 letras";
-        }else if(completouLetras == 1) {
+        }else if(completouLetras == 3) {
             palavra = palavras7letras[sorteio];
-            palavraOculta = "_____";
+            palavraOculta = "_______";
             titulo.textContent = "Jogo da Forca com 7 letras";
         }
         completouLetras = completouLetras + 1;

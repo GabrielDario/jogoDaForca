@@ -1,19 +1,22 @@
 img {
     position: absolute;
 }
+.forcaImg {
+    width: 150px;
+    margin-left: 50px;
+}
 .desenho1,.desenho2,.desenho3,.desenho4,.desenho5,.desenho6 {
     display: none;
 }
 .desenho1 {
-    margin-left: 81px;
+    margin-left: 127px;
     margin-top: 107px;
-    /* position: absolute; */
 }
 .desenho2,.desenho3,.desenho4 {
-    margin-left: 85px;
+    margin-left: 130px;
     margin-top: 187px;
 }
 .desenho5,.desenho6 {
-    margin-left: 83px;
-    margin-top: 267px;
+    margin-left: 129px;
+    margin-top: 267px
 }
